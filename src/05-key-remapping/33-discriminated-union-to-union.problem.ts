@@ -14,7 +14,9 @@ type Fruit =
       color: "orange";
     };
 
-type TransformedFruit = unknown;
+type TransformedFruit = {
+  [K in Fruit["name"]]: `${K}:${Extract<Fruit, { name: K }>["color"]}`;
+}[Fruit["name"]];
 
 type tests = [
   Expect<
