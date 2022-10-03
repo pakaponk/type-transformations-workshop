@@ -14,7 +14,11 @@ export const programModeEnumMap = {
  * https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
  */
 
-export type IndividualProgram = unknown;
+export type IndividualProgram = typeof programModeEnumMap[
+  | "ONE_ON_ONE"
+  | "SELF_DIRECTED"
+  | "PLANNED_ONE_ON_ONE"
+  | "PLANNED_SELF_DIRECTED"];
 
 type tests = [
   Expect<
