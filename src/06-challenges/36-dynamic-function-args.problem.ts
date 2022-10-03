@@ -1,6 +1,8 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-type FuncWithMaybePayload<T = undefined> = () => void;
+type FuncWithMaybePayload<T = undefined> = T extends undefined
+  ? () => void
+  : (payload: T) => void;
 
 const funcWithPayload: FuncWithMaybePayload<{
   id: string;
